@@ -1,0 +1,46 @@
+{
+  "name": "@pie527645-cloud/sse-stream-lab",
+  "version": "1.0.0",
+  "description": "Static TypeScript/JavaScript AST auditor for Server-Sent Events (SSE) caching headers, compression buffering, UTF-8 chunk decoding, and disconnect cleanup.",
+  "type": "module",
+  "license": "MIT",
+  "author": "pie527645-cloud",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pie527645-cloud/sse-stream-lab.git"
+  },
+  "homepage": "https://github.com/pie527645-cloud/sse-stream-lab#readme",
+  "bugs": {
+    "url": "https://github.com/pie527645-cloud/sse-stream-lab/issues"
+  },
+  "engines": {
+    "node": ">=20.18.1"
+  },
+  "bin": {
+    "sse-stream-lab": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "lint": "tsc -p tsconfig.test.json --noEmit",
+    "build": "tsc -p tsconfig.build.json && tsc -p tsconfig.test.json && node scripts/normalize-lf.mjs",
+    "test": "node --test dist-test/test/rules.test.js dist-test/test/golden.test.js dist-test/test/formatters.test.js dist-test/test/pathGuard.test.js dist-test/test/cli.test.js"
+  },
+  "dependencies": {
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.19"
+  }
+}
